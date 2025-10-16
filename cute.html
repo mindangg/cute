@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="images.jpg" />
+    <title>cute</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Đi chơi với tui nhé?</h1>
+        <img src="images.jpg">
+        <div>
+            <button id="yes">Oki</button>
+            <button id="no">Hong</button>
+        </div>
+        <div id="notification"></div>
+    </div>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom, #b4908c, #d8bcc4, #d8ccd4, #bcccd8);
+        }
+
+        .container{
+            margin-top: 45px;
+            margin: auto;
+            width: 90%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        h1{
+            color: #c42b38;
+        }
+        img{
+            width: 320px;
+            margin-bottom: 25px;
+        }
+        button{
+            padding: 15px;
+            width: 90px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 3px;
+            margin: 0 2px;
+            cursor: pointer;
+        }
+        #yes{
+            background-color: #50b45c;
+        }
+        #no{
+            background-color: #d04c54;
+        }
+        #notification {
+            visibility: hidden;
+            min-width: 250px;
+            color: black;
+            background: #c86c74;
+            font-family: sans-serif;
+            font-size: 17px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 7px;
+            padding: 20px;
+            position: fixed;
+            z-index: 3;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes drop-in {
+            from {top: 0; opacity: 0}
+            to {top: 70px; opacity: 1}
+        }
+
+        @keyframes drop-out {
+            from {top: 70px; opacity: 1}
+            to {top: 0; opacity: 0}
+        }
+
+        #notification.show{
+            visibility: visible;
+            animation: drop-in 1s, drop-out 1s 2s;
+        }
+    </style>
+
+    <script>
+        document.getElementById("yes").addEventListener("click", () => {
+            const notification = document.getElementById("notification")
+            notification.innerText = "Yeaaa"
+            notification.className = "show";
+            setTimeout(() => {
+                notification.classList.remove("show");
+            }, 2550);
+        })
+
+        const no = document.getElementById("no")
+        no.addEventListener("click", () => {
+            const btnWidth = no.offsetWidth
+            const btnHeight = no.offsetHeight
+            
+            const maxX = window.innerWidth - btnWidth
+            const maxY = window.innerHeight - btnHeight
+
+            const x = Math.floor(Math.random() * maxX)
+            const y = Math.floor(Math.random() * maxY)
+
+            no.style.position = 'absolute'
+            no.style.left = x + "px"
+            no.style.top = y + "px"
+        })
+    </script>
+</body>
+</html>
