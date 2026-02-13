@@ -7,11 +7,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Đi chơi với tui nhé?</h1>
+        <h1>Will you be my Valentine?</h1>
         <img src="images.jpg">
         <div>
-            <button id="yes">Oki</button>
-            <button id="no">Hong</button>
+            <button id="yes">Yessss</button>
+            <button id="no">No</button>
         </div>
         <div id="notification"></div>
     </div>
@@ -92,11 +92,11 @@
     <script>
         document.getElementById("yes").addEventListener("click", () => {
             const notification = document.getElementById("notification")
-            notification.innerText = "Yeaaa"
+            notification.innerText = "Bean love Bo ❤️"
             notification.className = "show";
             setTimeout(() => {
                 notification.classList.remove("show");
-            }, 2550);
+            }, 3000);
         })
 
         const no = document.getElementById("no")
